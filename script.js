@@ -63,31 +63,121 @@ function type() {
   }
 }
 
-// Panggil fungsi untuk memulai animasi ketik
+
 type();
 
 
 
 //----------------------- popup ------------------------
 
-// Ambil elemen tombol dan popup
-var popupBtn = document.getElementById("popup-btn");
-var popup = document.getElementById("popup");
+function openPopup() {
+  const popup = document.querySelector('.popup');
+  const overlay = document.querySelector('.overlay');
+  popup.style.display = 'block';
+  overlay.style.display = 'block';
+  
+  setTimeout(() => {
+      popup.style.transform = 'translate(-50%, -50%) scale(1)';
+      popup.style.opacity = '1';
+      overlay.style.opacity = '1';
+  }, 10); // Small delay to allow transition
 
-// Ketika tombol ditekan, tampilkan popup
-popupBtn.onclick = function() {
-  popup.style.display = "block";
-};
+  document.body.classList.add('show-popup');
+}
 
-// Ketika pengguna mengklik ikon close, sembunyikan popup
-popup.querySelector(".close").onclick = function() {
-  popup.style.display = "none";
-};
+function closePopup() {
+  const popup = document.querySelector('.popup');
+  const overlay = document.querySelector('.overlay');
+  
+  popup.style.transform = 'translate(-50%, -50%) scale(0)';
+  popup.style.opacity = '0';
+  overlay.style.opacity = '0';
+  
+  setTimeout(() => {
+      popup.style.display = 'none';
+      overlay.style.display = 'none';
+  }, 300); // Wait for the transition to end
 
-// Ketika pengguna mengklik di luar popup, sembunyikan popup
-window.onclick = function(event) {
-  if (event.target == popup) {
-    popup.style.display = "none";
-  }
-};
+  document.body.classList.remove('show-popup');
+}
+
+
+
+
+
+
+//------------------------ popup ios
+
+function showPopup2() {
+  document.getElementById('popup2-background').classList.add('show');
+  document.querySelector('.popup2').classList.add('show');
+}
+
+function closePopup2() {
+  var popup2 = document.querySelector('.popup2');
+  popup2.classList.remove('show');
+  popup2.classList.add('hide');
+
+  setTimeout(function () {
+    document.getElementById('popup2-background').classList.remove('show');
+    popup2.classList.remove('hide');
+  }, 500);
+}
+
+function changeMode(buttonIdToDisable, buttonIdToEnable) {
+  var buttonToDisable = document.getElementById(buttonIdToDisable);
+  var buttonToEnable = document.getElementById(buttonIdToEnable);
+  buttonToDisable.classList.add('disabled');
+  buttonToEnable.classList.remove('disabled');
+
+  // Add red text to the disabled button
+  buttonToDisable.classList.add('red-text');
+  buttonToEnable.classList.remove('red-text');
+}
+
+
+
+
+
+/*------------------------------- animation untuk navbar -----------------------------*/
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const menuBtn = document.querySelector('.menu-btn');
+  const cancelBtn = document.querySelector('.cancel-btn');
+  const navbar = document.querySelector('.navbar');
+  const menu = document.querySelector('.menu');
+
+  menuBtn.addEventListener('click', () => {
+    menu.classList.add('active');
+    navbar.classList.add('active');
+
+    const links = menu.querySelectorAll('a');
+    links.forEach((link, index) => {
+      link.style.animationDelay = `${0.5 + index * 0.1}s`; // Menambahkan delay untuk setiap link
+      link.style.animationName = 'slideInLeft'; // Menambahkan nama animasi
+    });
+  });
+
+  cancelBtn.addEventListener('click', () => {
+    menu.classList.remove('active');
+    navbar.classList.remove('active');
+    const links = menu.querySelectorAll('a');
+    links.forEach((link) => {
+      link.style.animationName = 'none';
+      link.style.opacity = '0'; 
+    });
+  });
+});
+
+
+
+
+
+
+/*------------------------- card --------------------------------------*/
 
