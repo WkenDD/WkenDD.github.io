@@ -4,29 +4,33 @@
     <meta charset="UTF-8" />
     <title>WkenD</title>
     <link rel="stylesheet" href="style.css" />
- 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="icon" href="images/sankustudio.png" type="image/x-icon" />
   </head>
   </head>
   <body>
-  
+
     <div class="scroll-button">
-      <a href="#home"><i class="fas fa-arrow-up"></i></a>
+      <a href="#home"><i class="fas fa-angle-double-up"></i></a>
     </div>
+
+  </div>
+
+
   <!------------------ nav menu -------------------->
     <nav>
-      <div class="navbar">
+      <div class="navbar hidden">
         <div class="logo"><a href="https://discord.com/invite/EpKdu9NQMg">WkenD.</a></div>
         <ul class="menu">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="https://discord.gg/EpKdu9NQMg">Discord</a></li>
-          <li><a href="https://wkendd.github.io/sosmed.wkend/">More</a></li>
+          <li><a id="navbatext" href="#home">SankuStudio</a></li>
+          <li><a href="#about">PyxelHost</a></li>
+          <li><a href="wkend.vercel.app">Grehista</a></li>
+          <li><a href="#skills">Portfolio</a></li>
           <div class="cancel-btn">
-            <i class="fas fa-times"></i>
+            <i class="fas fa-angle-double-left"></i>
           </div>
         </ul>
       <div class="menu-btn">
@@ -49,7 +53,7 @@
         </div>
       </div>
     </section>
-    
+
 
 
 
@@ -73,8 +77,11 @@
           </div>
             <div class="text">
               <div class="topic">About SankuStudio</div>
-              <p>Sanku Studio yang awalnya bernama Sanku Network, adalah sebuah server Minecraft yang di dirikan oleh Grehista,Faiq, dan Arsya. awal mula Sanku adalah sebuah gabungan antara server Minecraft "Santuy Network" dan "Hakku Network" pada 2020. Sanku pernah hampir menjadi server besar, tetapi di karenakan admin dan staff abuse ( mempergunakan admin untuk merusak server ), dan di karenakan dana yang kurang yang di sebabkan wabah virus covid-19 yang membuat perekonomian turun, Sanku Network tidak di lanjutkan.....</p>
-              <button id="popup-btn">Baca Selengkapnya</button>
+              <p>Sanku Studio yang awalnya bernama Sanku Network, adalah sebuah server Minecraft yang di dirikan oleh Grehista,Faiq, dan Arsya.
+                awal mula Sanku adalah sebuah gabungan antara server Minecraft "Santuy Network" dan "Hakku Network" pada 2020.
+                Sanku pernah hampir menjadi server besar, tetapi di karenakan admin dan staff abuse ( mempergunakan admin untuk merusak server ),
+                dan di karenakan dana yang kurang yang di sebabkan wabah virus covid-19 yang membuat perekonomian turun, Sanku<a onclick="openPopup()" >Network tidak di lanjutkan.....</a></p>
+              <button class="popup-button" onclick="openPopup()">Read More</button>
               <div class="experience">
                 <div class="num">5</div>
                 <div class="exp">
@@ -82,18 +89,29 @@
                   Ago
                 </div>
               </div>
-              <div id="popup" class="popup">
+              <div class="overlay" onclick="closePopup()"></div>
+              <div class="popup">
+                <button class="close-button" onclick="closePopup()">&times;</button>
                 <div class="popup-content">
-                  <span class="close">&times;</span>
-                  <p>Sanku Studio yang awalnya bernama Sanku Network, adalah sebuah server Minecraft yang di dirikan oleh Grehista,Faiq, dan Arsya. awal mula Sanku adalah sebuah gabungan antara server Minecraft "Santuy Network" dan "Hakku Network" pada 2020. Sanku pernah hampir menjadi server besar, tetapi di karenakan admin dan staff abuse ( mempergunakan admin untuk merusak server ), dan di karenakan dana yang kurang yang di sebabkan wabah virus covid-19 yang membuat perekonomian turun, Sanku Network tidak di lanjutkan lagi, sempat ingin di lanjutkan tetapi keterbatasan dana menjadi penghalang. Sanku juga pernah membuat hosting Minecraft tetapi tidak berhasil karena keterbatasan pengetahuan dalam hosting. kenapa namanya bisa Sanku Studio?. kami memutuskan untuk memberi nama Sanku Studio karena kami sudah tidak berfokus ke Minecraft server lagi. dan Sanku Hosting di gantikan dengan nama Pyxel Hosting, tetapi masih membawa nama Sanku</p>
-                  <div class="experience">
-                    <div class="num">5</div>
-                    <div class="exp">
-                      Years<br />
-                      Ago
-                    </div>
-                  </div>
-                     
+                    <h2>Sanku Studio</h2>
+                    <p>
+                      Sanku Studio yang awalnya bernama Sanku Network, adalah sebuah server Minecraft yang di dirikan oleh Grehista,Faiq, dan Arsya.
+                      awal mula Sanku adalah sebuah gabungan antara server Minecraft "Santuy Network" dan "Hakku Network" pada 2020.
+                      Sanku pernah hampir menjadi server besar, tetapi di karenakan admin dan staff abuse ( mempergunakan admin untuk merusak server ), dan di karenakan dana yang kurang yang di sebabkan wabah virus covid-19 yang membuat perekonomian turun
+                        <br><br>
+                        Sanku Network tidak di lanjutkan lagi, sempat ingin di lanjutkan tetapi keterbatasan dana menjadi penghalang.
+                         Sanku juga pernah membuat hosting Minecraft tetapi tidak berhasil karena keterbatasan pengetahuan dalam hosting. 
+                         kenapa namanya bisa Sanku Studio?.
+                         kami memutuskan untuk memberi nama Sanku Studio karena kami sudah tidak berfokus ke Minecraft server lagi. dan Sanku Hosting di gantikan dengan nama Pyxel Hosting, tetapi masih membawa nama Sanku
+                    </p>
+                    <div class="experience">
+                      <div class="num">5</div>
+                      <div class="exp">
+                        Years<br />
+                        Ago
+                </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -106,46 +124,53 @@
       <div class="content">
         <div class="title"><span>Experience</span></div>
         <div class="skills-details">
-          <div class="box">
+          <div class="box" onclick="showPopup2()">
             <div class="icon">
               <i class="fas fa-code"></i>
             </div>
             <div class="exp-topic">Web Development</div>
-            <div class="per">48%</div>
+            <div class="per">Click</div>
           </div>
-          <div class="box">
+          <div class="box" onclick="showPopup2()">
             <div class="icon">
               <i class="fas fa-cube"></i>
             </div>
             <div class="exp-topic">Minecraft Server Developer</div>
-            <div class="per">75%</div>
+            <div class="per">Click</div>
           </div>
-          <div class="box">
+          <div class="box" onclick="showPopup2()">
             <div class="icon">
               <i class="fas fa-camera"></i>
             </div>
             <div class="exp-topic">Fotografi Videografi</div>
-            <div class="per">73%</div>
+            <div class="per">Click</div>
           </div>
-          <div class="box">
+          <div  class="box" onclick="showPopup2()">
             <div class="icon">
               <i class="fas fa-laptop"></i>
             </div>
-            <div class="exp-topic">Vlog/Cinematic Video Editor</div>
-            <div class="per">53%</div>
+            <div class="exp-topic">Editing Video</div>
+            <div class="per">Click</div>
+          </div>
+          <div class="popup2-background" id="popup2-background">
+            <div class="popup2" id="popup2">
+              <div class="popup2-header">Action</div>
+              <a class="popup2-button delete" href="https://wkend.vercel.app/">Information</a>
+              <a class="popup2-button" href="https://wkend.vercel.app/">Portofolio</a>
+              <button class="popup2-button cancel" onclick="closePopup2()">Cancel</button>
+            </div>  
           </div>
         </div>
       </div>
     </section>
-    
-    
+
+
     <!------------------ discord -------------------->    
 
     <section class="skills" id="skills">
       <div class="content">
         <div class="title"><span>Discord</span></div>
         <div class="skills-details">
-          <div class="w_title"><span>Discord Community</span></div>
           <div class="discord-widget-container">
             <iframe src="https://discord.com/widget?id=883940311489978408&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
           </div>
@@ -162,7 +187,7 @@
     <footer class="footer">
       <div class="footer__bg">
         <div class="container footer__container">
-          <h2 class="footer__title">Powered By SankuStudio</h2>
+          <h2 class="footer__title">Powered By <a href="https://wkendd.github.io/sosmed.wkend/">SankuStudio</a></h2>
           <div class="footer__links">
             <a href="https://www.instagram.com/sankustudio/" class="footer__social"><i class="fab fa-instagram"></i></a>
             <a href="https://discord.com/invite/86CvNZkaUt" class="footer__social"><i class="fab fa-discord"></i></a>

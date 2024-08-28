@@ -68,7 +68,7 @@ nav {
   padding: 20px 0;
   z-index: 998;
   transition: all 0.3s ease;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 nav.sticky {
@@ -262,7 +262,8 @@ nav.sticky .menu-btn {
   .home .text-four,
   .home .text-five,
   .home .text-six,
-  .home .text-7 {
+  .home .text-7,  
+  .text-awal {
     font-size: 12px;
     text-align: center;
   }
@@ -371,10 +372,12 @@ section .button button:hover {
 
 .skills-details .text {
   background-color: #1C1F22;
-  border-radius: 12px;
+  border-radius: 30px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
+
+
 
 @media only screen and (max-width: 768px) {
   .skills-details .text {
@@ -407,7 +410,7 @@ section .button button:hover {
 }
 
 .experience {
-  margin-top: 20px; /* Atur jarak antara tombol dan elemen ini */
+  margin-top: 20px;
 }
 
 .skills .skills-details .experience {
@@ -469,7 +472,7 @@ section .button button:hover {
   text-align: center;
   border-radius: 12px;
   padding: 30px 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 5px 10px rgba(219, 0, 0, 0.12);
   cursor: default;
   transition: all 0.4s ease;
 }
@@ -509,6 +512,16 @@ section .button button:hover {
 }
 
 
+
+
+
+/*--------------------------- animasi masuk skill details ---------------------*/
+
+
+
+
+
+
 /* Scroll TO Top Button CSS */
 .scroll-button a {
   position: fixed;
@@ -517,11 +530,11 @@ section .button button:hover {
   color: #fff;
   background: #7C40F4;
   padding: 7px 12px;
-  ;
   font-size: 18px;
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.15);
   display: none;
+  z-index: 500;
 }
 
 /* Responsive Media Query */
@@ -567,18 +580,21 @@ section .button button:hover {
   }
 
   nav .navbar .menu {
+    font-family: 'Poppins', sans-serif;
     position: fixed;
     left: -100%;
     top: 0;
-    background: #0E2431;
     height: 100vh;
     max-width: 400px;
+    background: transparent;
+    backdrop-filter: blur(10px);
     width: 100%;
     padding-top: 60px;
     flex-direction: column;
     align-items: center;
-    transition: all 0.5s ease;
+    transition: all 1s ease;
   }
+
 
   .navbar.active .menu {
     left: 0;
@@ -603,6 +619,7 @@ section .button button:hover {
   .navbar .menu .cancel-btn {
     display: block;
   }
+  
 
   .home .text-two {
     font-size: 65px;
@@ -666,11 +683,12 @@ section .button button:hover {
 
 .box {
   width: 200px;
-  height: 190px;
+  height: 200px;
   position: relative;
   background-color: #1C1F22;
-  border-radius: 8px;
-  padding: 15px;
+  border-radius: 17.544%;
+  padding: 20px;
+  cursor: pointer;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s; /* Animasi perubahan warna latar belakang */
 }
@@ -683,6 +701,7 @@ section .button button:hover {
 
 .exp-topic, .per {
   color: #fff; /* Warna teks tetap putih */
+  line-height: 1;
   font-size: 19px;
   margin-bottom: 5px;
 }
@@ -703,28 +722,32 @@ section .button button:hover {
   }
 
   .box {
-    margin-bottom: 10px;
     padding: 15px 20px;
+    box-sizing: content-box;
+    position: relative;
+    border-radius: 17.544%;
     height: 150px;
-    width: calc(30% - 40px);
+    width: calc(30% - 50px);
   }
 
   .exp-topic {
     font-size: 15px;
     margin-bottom: 1px;
+    line-height: 1;
   }
   
   .per {
     position: absolute;
-    bottom: 5px;
+    bottom: 15px;
     left: 20px;
     font-weight: bold;
   }
 }
 
 /* Mengubah warna latar belakang ketika kotak diklik */
-.box:hover {
+.box:active {
   background-color: #7C40F4;
+  transform: scale(0.9); 
 }
 
 
@@ -796,68 +819,189 @@ section .button button:hover {
 
 /*------------------------------------ popup --------------------------------*/
 
-.popup {
-  display: none;
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            overflow-y: hidden;
+            overflow-x: hidden;
+            width: 80%;
+            max-width: 600px;
+            background-color: #121212;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transform: translate(calc(50vw - 25px), calc(50vh - 25px)) scale(0);
+            transition: transform 0.7s ease-in-out, opacity 0.5s ease-in-out;
+            border-radius: 30px;
+            opacity: 0;
+        }
+
+        /* Popup content */
+        .popup-content {
+            padding: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        /* Close button */
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background-color: transparent;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            transition: visibility 0s, opacity 1s;
+            z-index: 999;
+        }
+
+        /* Show popup and overlay with animation */
+        .show-popup .popup {
+            display: block;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 1;
+        }
+
+        .show-popup .overlay {
+            display: block;
+        }
+
+      .popup-button {
+        border-radius: 30px;
+        padding: 5px;
+        background-color: #7C40F4;
+        border: transparent;
+        font-family: 'poppins', sans-serif;
+      }
+
+
+
+
+/*---------------------------- popup ios ------------------------------*/
+
+.popup2-background {
+  display: flex;
+  background-color: #121212;
+  justify-content: center;
+  align-items: flex-end;
   position: fixed;
-  z-index: 999;
-  left: 0;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.4);
+  visibility: hidden;
+  opacity: 0;
+  backdrop-filter: blur(5px);
+  transition: visibility 0s, opacity 0.5s;
+  z-index: 999;
 }
 
-.popup-content {
-  background-color: #1C1F22;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #7C40F4;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  width: 80%;
-  max-width: 400px;
-  max-height: 350px;
-  overflow-y: auto;
-  position: relative; /* Untuk menetapkan posisi relatif */
+.popup2 {
+  background-color: #121212;
+  border-radius: 17.544% 17.544% 5% 5%;
+  padding: 10px 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 270px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  transform: translateY(100%);
+  transition: transform 0.5s;
 }
 
-.close {
-  color: #aaa;
-  position: absolute; /* Tetapkan posisi absolut */
-  top: 10px; /* Atur jarak dari atas */
-  right: 10px; /* Atur jarak dari kanan */
-  font-size: 28px;
+.popup2-header {
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: #C7C7CC;
+}
+
+.popup2-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 0;
+  background: #121212;
+  font-size: 17px;
+  font-weight: 400;
+  text-align: center;
+  cursor: pointer;
+  color: #007aff;
+}
+
+.popup2-button:first-child {
+  border-top: none;
+}
+
+.popup2-button:hover {
+  background: #e5e5ea;
+}
+
+.delete {
+  color: #007aff;
+}
+
+.cancel {
   font-weight: bold;
-  cursor: pointer;
+  color: #f16245;
+  border: none;
+  border-top: 1px solid #c7c7cc;
 }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+.popup2-background.show {
+  visibility: visible;
+  opacity: 1;
 }
 
-#popup-btn {
-  background-color: #1C1F22;
-  color: #fff;
-  border: 2px solid #7C40F4;
-  border-radius: 5px;
-  padding: 12px 24px;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+.popup2.show {
+  transform: translateY(-10%);
 }
 
-#popup-btn:hover {
-  background-color: #7C40F4;
+.popup2.hide {
+  transform: translateY(100%);
+  transition: transform 0.5s;
 }
 
-/* Responsif untuk perangkat seluler */
-@media only screen and (max-width: 768px) {
-  .popup-content {
-    max-height: 500px; /* Ketinggian maksimum untuk tampilan handphone */
+.disabled {
+  background-color: #AEAEB2;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+
+  /* Apply these styles for desktop */
+  .popup2 {
+    width: 50%;
+    /* Set width for larger screens */
+    max-width: none;
+    /* Remove max-width */
   }
 }
+
+.red-text {
+  color: red;
+}
+
+
+
+
+
 
 
 
@@ -866,8 +1010,8 @@ section .button button:hover {
 
 /*-------------------------- css wiget discord -------------------*/
 .discord-widget-container {
-  text-align: center; /* Memposisikan teks di tengah */
-  margin-top: 20px; /* Memberikan jarak antara teks dan widget */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .discord-widget-container iframe {
@@ -882,4 +1026,60 @@ section .button button:hover {
   padding-bottom: 8px;
 }
 
+
+
+/*------------------------------------ animasi text navba --------------------------*/
+
+
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.menu.active {
+  opacity: 1; 
+  transition: opacity 0.5s ease-in-out;
+}
+
+.menu.active a {
+  animation: slideInLeft 0.5s ease forwards;
+  opacity: 1; 
+}
+
+
+.cancel-btn, .menu-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #333;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform 0.7s ease-in-out, opacity 0.3s ease-in-out;
+  }
+
+  .menu-btn, .cancel-btn {
+    display: block;
+    color: #fff;
+    font-size: 1.5em;
+    padding: 10px 20px;
+  }
+
+  .menu.active {
+    transform: translateX(0);
+  }
+}
 
